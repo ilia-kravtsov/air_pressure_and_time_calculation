@@ -1,0 +1,144 @@
+@import 'variables';
+@import 'mixin';
+
+.inputContainer {
+  @include flex(column, space-evenly, center);
+  background-color: $bgcSecond;
+  width: 50%;
+  min-height: 50vh;
+}
+
+.inputContainer h1 {
+  color: white;
+}
+
+.inputSection {
+  @include flex(row, space-evenly, center);
+  width: 100%;
+  gap: 30px;
+  transition-property: all;
+  transition-duration: 0.5s;
+}
+
+.inputBox {
+  display: flex;
+  position: relative;
+  width: 40%;
+}
+
+.inputData {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: $bgcSecond;
+  outline: none;
+  color: white;
+  font-size: 20px;
+  transition: 0.5s;
+}
+
+.inputBox span {
+  position: absolute;
+  left: 0;
+  padding: 10px;
+  pointer-events: none;
+  font-size: 20px;
+  color: white;
+  transition: 0.5s;
+}
+
+.inputBox .inputData:valid ~ span,
+.inputBox .inputData:focus ~ span {
+  color: white;
+  transform: translate(10px) translateY(-11px);
+  font-size: 16px;
+  padding: 0 10px;
+  background: $accentColor;
+  letter-spacing: 2px;
+  border-radius: 3px;
+}
+
+.inputBox .inputData:valid,
+.inputBox .inputData:focus {
+  border: 1px solid $accentColor;
+}
+
+.countClick {
+  border: none;
+  outline: none;
+  position: relative;
+  padding: 20px 50px;
+  display: block;
+  text-decoration: none;
+  width: 200px;
+  overflow: hidden;
+  text-align: center;
+  border-radius: 3px;
+  transform: rotate(-4deg);
+  transition: transform 0.2s ease-in-out;
+  @keyframes animate {
+    0% {
+      transform: translate(-50%, -75%) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, -75%) rotate(360deg);
+    }
+  }
+}
+
+.countClick span {
+  position: relative;
+  z-index: 1;
+  color: white;
+  font-size: 24px;
+  letter-spacing: 1px;
+}
+
+.countClick .liquid {
+  position: absolute;
+  left: 0;
+  top: -80px;
+  width: 200px;
+  height: 200px;
+  background: $accentColor;
+  transition: 0.5s;
+}
+
+.countClick:hover .liquid {
+  top: -120px;
+}
+
+.countClick .liquid:before,
+.countClick .liquid:after {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -75%);
+}
+
+.countClick:active {
+  transform: scale(0.94);
+}
+
+.liquid:before {
+  border-radius: 45%;
+  background-color: #222222;
+  animation: animate 5s linear infinite;
+}
+
+.liquid:after {
+  border-radius: 40%;
+  background: rgba(35, 35, 35, 0.5);
+  animation: animate 10s linear infinite;
+}
+
+.timeError {
+  color: firebrick;
+}
+
+.errorBlock {
+  height: 20px;
+}

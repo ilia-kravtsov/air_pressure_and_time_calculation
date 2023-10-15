@@ -1,0 +1,8 @@
+@import 'variables';
+@import 'mixin';
+
+.container {
+  @include flex(column, center, center);
+  padding: 20px;
+  background-color: $bgcSecond;
+}

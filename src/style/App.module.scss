@@ -1,0 +1,53 @@
+@import 'variables';
+@import 'mixin';
+
+.app {
+  background-color: $bgcFirst;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  color: white;
+  @include flex(column, flex-start, center);
+}
+
+.app_logo {
+  height: 10vmin;
+}
+
+.app_logo * {
+  fill: white;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .app_logo {
+    animation: app_logo_spin infinite 10s linear;
+  }
+}
+
+.header {
+  @include flex(row, center, center);
+  min-height: 10vh;
+  width: 50%;
+}
+
+@keyframes app_logo_spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.body {
+  border: 1px solid red;
+  @include flex(column, space-evenly, center);
+  width: 100%;
+  min-height: 80vh;
+}
+
+.blocksContainer {
+  @include flex(row, space-evenly, center);
+  width: 100%;
+}
