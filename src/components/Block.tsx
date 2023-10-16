@@ -43,7 +43,7 @@ export const Block: React.FC<BlockType> = ({title, columNumber, timeOn, P_Max_Fa
                 {columNumber === 8 && <div className={s.changedBlock}>{`${P_Exit} атм`}</div>}
                 {columNumber === 9 && <div className={s.changedBlock}>{`${Delta_T} мин`}</div>}
                 {columNumber === 10 && <div className={s.changedBlock}>{`${T_Exit === 'NaN:NaN' ? '00:00' : T_Exit}`}</div>}
-                {columNumber === 11 && <div className={s.changedBlock}>{`${T_General}`}</div>}
+                {columNumber === 11 && <div className={s.changedBlock}>{`${T_General} мин`}</div>}
                 {columNumber === 12 && <div className={s.changedBlock}>{`${T_Returning === 'NaN:NaN' ? '00:00' : T_Returning}`}</div>}
                 {columNumber === 13 && <div className={s.changedBlock}>{`${T_Fact_Returning === 'NaN:NaN' ? '00:00' : T_Fact_Returning}`}</div>}
                 {columNumber === 14 && <div className={s.phrases}>
