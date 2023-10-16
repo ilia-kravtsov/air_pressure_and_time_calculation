@@ -10,6 +10,7 @@
 
 .inputContainer h1 {
   color: white;
+  font-size: 32px;
 }
 
 .inputSection {
@@ -42,7 +43,7 @@
   left: 0;
   padding: 10px;
   pointer-events: none;
-  font-size: 20px;
+  font-size: 24px;
   color: white;
   transition: 0.5s;
 }
@@ -64,6 +65,7 @@
 }
 
 .countClick {
+  margin-top: 20px;
   border: none;
   outline: none;
   position: relative;
@@ -74,7 +76,6 @@
   overflow: hidden;
   text-align: center;
   border-radius: 3px;
-  transform: rotate(-4deg);
   transition: transform 0.2s ease-in-out;
   @keyframes animate {
     0% {
@@ -135,10 +136,101 @@
   animation: animate 10s linear infinite;
 }
 
-.timeError {
+.error {
   color: firebrick;
+  animation: error 3s forwards;
+  @keyframes error {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 100;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
 }
 
 .errorBlock {
   height: 20px;
+}
+
+@media screen and (max-width: 2000px) {
+  .inputContainer {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .inputSection {
+    @include flex(column, space-evenly, center);
+  }
+  .inputBox {
+    width: 70%;
+  }
+  .inputContainer h1 {
+    font-size: 28px;
+  }
+  .inputBox span {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .inputContainer {
+    width: 92%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .countClick{
+    height: 60px;
+    width: 190px;
+  }
+  .inputContainer h1 {
+    font-size: 24px;
+  }
+  .inputBox span {
+    font-size: 18px;
+  }
+  .countClick span {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .inputContainer {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .inputContainer h1 {
+    font-size: 20px;
+  }
+  .countClick{
+    height: 56px;
+    width: 170px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .inputContainer h1 {
+    font-size: 18px;
+  }
+  .inputBox .inputData:valid ~ span,
+  .inputBox .inputData:focus ~ span {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .inputBox span {
+    font-size: 16px;
+  }
+  .inputBox .inputData:valid ~ span,
+  .inputBox .inputData:focus ~ span {
+    font-size: 12px;
+  }
 }

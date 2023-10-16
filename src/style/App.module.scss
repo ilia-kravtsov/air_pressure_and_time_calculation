@@ -8,6 +8,7 @@
   z-index: 1;
   width: 100%;
   color: white;
+  font-size: 20px;
   @include flex(column, flex-start, center);
 }
 
@@ -27,7 +28,7 @@
 
 .header {
   @include flex(row, center, center);
-  min-height: 10vh;
+  min-height: 12vh;
   width: 50%;
 }
 
@@ -41,13 +42,131 @@
 }
 
 .body {
-  border: 1px solid red;
   @include flex(column, space-evenly, center);
   width: 100%;
-  min-height: 80vh;
 }
 
 .blocksContainer {
-  @include flex(row, space-evenly, center);
+  margin-top: 10px;
+  @include flex(column, flex-start, center);
   width: 100%;
+  flex-wrap: wrap;
+}
+
+.footer {
+  @include flex(row, center, center);
+  height: 16vh;
+}
+
+.getHireLink {
+  @include flex(column, center, center);
+  width: 80%;
+  color: $fontColor;
+  text-decoration: none;
+  transition-duration: 1s;
+  transition-property: all;
+  &:hover {
+    transform: scale(1.05);
+  }
+  &:hover .getHireContainer {
+    border-radius: 50px;
+    background-color: $accentColor;
+  }
+}
+
+.getHireContainer {
+  @include flex(row, space-between, center);
+  border-radius: 5px;
+  width: 300px;
+  overflow: hidden;
+  transition-duration: 0.6s;
+  transition-property: all;
+  border: 1px solid $accentColor;
+}
+
+.getHireTitle {
+  font-size: 20px;
+  transition-duration: 1s;
+  transition-property: all;
+  white-space: nowrap;
+  animation: marquee 3s infinite linear;
+  overflow: hidden;
+  width: 100%;
+  @keyframes marquee {
+    0% {
+      transform: translateX(100%)
+    }
+    100% {
+      transform: translateX(-100%)
+    }
+  }
+}
+
+.getHireIcon {
+  width: 60px;
+  height: 60px;
+  padding: 10px;
+  border-radius: 5px;
+  margin-left: auto;
+  background-color: $accentColor;
+  z-index: 1;
+}
+
+@media screen and (max-width: 900px) {
+  .header {
+    min-height: 10vh;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .getHireIcon {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .header {
+    min-height: 8vh;
+  }
+  .footer {
+    height: 20vh;
+  }
+  .app {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .app_logo {
+    height: 60px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .header {
+    min-height: 7vh;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .app_logo {
+    height: 50px;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .getHireIcon {
+    width: 44px;
+    height: 44px;
+  }
+  .getHireContainer {
+    width: 250px;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .app {
+    font-size: 16px;
+  }
 }
