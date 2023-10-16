@@ -192,7 +192,7 @@
     font-size: 24px;
   }
   .inputBox span {
-    font-size: 18px;
+    font-size: 20px;
   }
   .countClick span {
     font-size: 20px;
@@ -203,11 +203,18 @@
   .inputContainer {
     width: 100%;
   }
+  .inputContainer h1 {
+    font-size: 18px;
+  }
+  .inputBox .inputData:valid ~ span,
+  .inputBox .inputData:focus ~ span {
+    font-size: 14px;
+  }
 }
 
 @media screen and (max-width: 400px) {
   .inputContainer h1 {
-    font-size: 20px;
+    font-size: 22px;
   }
   .countClick{
     height: 56px;
@@ -215,13 +222,18 @@
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 350px) {
   .inputContainer h1 {
-    font-size: 18px;
+    font-size: 20px;
   }
-  .inputBox .inputData:valid ~ span,
-  .inputBox .inputData:focus ~ span {
-    font-size: 14px;
+  .inputBox span {
+    font-size: 19px;
+  }
+}
+
+@media screen and (max-width: 315px) {
+  .inputBox span {
+    font-size: 18px;
   }
 }
 
