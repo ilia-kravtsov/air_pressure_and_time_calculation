@@ -20,6 +20,10 @@
   @include flex(row, center, center);
 }
 
+.eighty {
+  text-align: center;
+}
+
 .phrases {
   @include flex(row, center, center);
   width: 100%;

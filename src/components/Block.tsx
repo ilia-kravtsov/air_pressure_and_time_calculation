@@ -24,7 +24,7 @@ export const Block: React.FC<BlockType> = ({title, columNumber, timeOn, P_Max_Fa
                 {columNumber === 1 && <div>01.04.1984</div>}
                 {columNumber === 2 && <div>ул. Кутузова, 4</div>}
                 {columNumber === 3 && <div>
-                    <div>80 ПСЧ</div>
+                    <div className={s.eighty}>80 ПСЧ</div>
                     <div>Паустовский П.П.</div>
                 </div>}
                 {columNumber === 4 && <div>
