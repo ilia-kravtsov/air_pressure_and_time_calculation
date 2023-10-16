@@ -16,7 +16,6 @@ type BlockType = {
 }
 
 export const Block: React.FC<BlockType> = ({title, columNumber, timeOn, P_Max_Falling, P_Exit,Delta_T,T_Exit,T_General,T_Returning,T_Fact_Returning}) => {
-    console.log(timeOn?.split(':'))
     return (
         <div className={s.container}>
             <div className={s.title}>{title}</div>

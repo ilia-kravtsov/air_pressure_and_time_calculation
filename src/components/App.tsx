@@ -1,15 +1,27 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {ReactComponent as Logo} from '../logo.svg';
 import s from '../style/App.module.scss';
 import {Block} from "./Block";
-import {Particle} from "./Particle";
 import {Input} from "./Input";
 import {timeCount} from "../utils/timeCount";
 
 function App() {
 
     let [data, setData] = useState<{ time: string, pressure: string }>({time: '', pressure: ''})
-    const dataCB = (startData: { time: string, pressure: string }) => setData(startData);
+
+    useEffect(() => {
+        let oldStartTime = localStorage.getItem('startTime')
+        let oldStartPressure = localStorage.getItem('startPressure')
+        if (oldStartTime && oldStartPressure) {
+            setData({time: oldStartTime, pressure: oldStartPressure})
+        }
+    },[])
+
+    const dataCB = (startData: { time: string, pressure: string }) => {
+        localStorage.setItem('startTime', startData.time)
+        localStorage.setItem('startPressure', startData.pressure)
+        setData(startData);
+    }
 
     const P_Max_Falling = Math.floor(+data.pressure / 3);
     const P_Exit = Math.floor(+data.pressure - P_Max_Falling);
@@ -21,7 +33,6 @@ function App() {
 
     return (
         <div className={s.app}>
-            <Particle/>
             <header className={s.header}>
                 <Logo className={s.app_logo}/>
             </header>
