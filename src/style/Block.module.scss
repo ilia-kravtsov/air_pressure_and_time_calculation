@@ -15,13 +15,6 @@
   text-align: center;
 }
 
-.columNumber {
-  border-top: 1px solid $bgcSecond;
-  border-bottom: 1px solid $bgcSecond;
-  width: 100%;
-  text-align: center;
-}
-
 .information {
   width: 100%;
   @include flex(row, center, center);
