@@ -16,35 +16,30 @@ export const Input: React.FC<InputType> = ({dataCB}) => {
     }
     const pressureChanger = (e: ChangeEvent<HTMLInputElement>) => setStartData({...startData, pressure: e.currentTarget.value});
 
+    const emptyError = (errorText: string) => {
+        setError(errorText)
+        setTimeout(() => {
+            setError('')
+        }, 3000)
+    }
+
     const onCountClick = () => {
         if (startData.time === '' && startData.pressure === '') {
-            setError('Заполните все поля')
-            setTimeout(() => {
-                setError('')
-            }, 4000)
+            emptyError('Заполните все поля')
         } else if (startData.time === '' || startData.pressure === '') {
-            setError('Заполните все поля')
-            setTimeout(() => {
-                setError('')
-            }, 4000)
+            emptyError('Заполните все поля')
         } else {
             const pattern = /^([01]\d|2[0-3]):[0-5]\d$/;
             if (pattern.test(startData.time)) {
                 if (+startData.pressure < 250 || +startData.pressure > 300) {
-                    setError('250 > P < 300')
-                    setTimeout(() => {
-                        setError('')
-                    }, 3000)
+                    emptyError('250 > P < 300')
                 } else {
                     dataCB(startData);
                     setError('')
                     setStartData({time: '', pressure: ''})
                 }
             } else {
-                setError('Не верно указан формат времени')
-                setTimeout(() => {
-                    setError('')
-                }, 3000)
+                emptyError('Не верно указан формат времени')
             }
         }
     }
