@@ -9,45 +9,42 @@ type InputType = {
 export const Input: React.FC<InputType> = ({dataCB}) => {
 
     let [startData, setStartData] = useState<{time: string, pressure: string}>({time: '', pressure: ''});
-    let [timeError, setTimeError] = useState<boolean>(false)
-    let [pressureError, setPressureError] = useState<boolean>(false)
-    let [emptyError, setEmptyError] = useState<boolean>(false)
+    let [error, setError] = useState<string>('')
 
     const timeChanger = (e: ChangeEvent<HTMLInputElement>) => {
         setStartData({...startData, time: e.currentTarget.value});
     }
     const pressureChanger = (e: ChangeEvent<HTMLInputElement>) => setStartData({...startData, pressure: e.currentTarget.value});
-    console.log(emptyError)
+
     const onCountClick = () => {
         if (startData.time === '' && startData.pressure === '') {
-            setEmptyError(true)
+            setError('Заполните все поля')
             setTimeout(() => {
-                setEmptyError(false)
+                setError('')
             }, 4000)
         } else if (startData.time === '' || startData.pressure === '') {
-            setEmptyError(true)
+            setError('Заполните все поля')
             setTimeout(() => {
-                setEmptyError(false)
+                setError('')
             }, 4000)
         } else {
             const pattern = /^([01]\d|2[0-3]):[0-5]\d$/;
             if (pattern.test(startData.time)) {
                 if (+startData.pressure < 250 || +startData.pressure > 300) {
-                    setPressureError(true)
+                    setError('250 > P < 300')
                     setTimeout(() => {
-                        setPressureError(false)
-                    }, 4000)
+                        setError('')
+                    }, 3000)
                 } else {
                     dataCB(startData);
-                    setPressureError(false)
+                    setError('')
                     setStartData({time: '', pressure: ''})
                 }
-                setTimeError(false)
             } else {
-                setTimeError(true)
+                setError('Не верно указан формат времени')
                 setTimeout(() => {
-                    setTimeError(false)
-                }, 4000)
+                    setError('')
+                }, 3000)
             }
         }
     }
@@ -80,9 +77,7 @@ export const Input: React.FC<InputType> = ({dataCB}) => {
                 <div className={s.liquid}></div>
             </button>
             <div className={s.errorBlock}>
-                {timeError && <div className={s.error}>{'Не верно указан формат времени'}</div>}
-                {pressureError && <div className={s.error}>{'250 > P < 300'}</div>}
-                {emptyError && <div className={s.error}>{'Заполните все поля'}</div>}
+                {error && <div className={s.error}>{error}</div>}
             </div>
         </div>
     );
