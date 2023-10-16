@@ -37,9 +37,9 @@ export const Block: React.FC<BlockType> = ({   title,
                     <div>Паустовский П.П.</div>
                 </div>}
                 {columNumber === 4 && <div>
-                    <div>Иванов И.И.</div>
-                    <div>Петров П.П.</div>
-                    <div>Сидоров С.С.</div>
+                    <div>Пушкин А.С.</div>
+                    <div>Булгаков М.А.</div>
+                    <div>Достоевский Ф.М.</div>
                     <div>ПТС 'Профи - М'</div>
                 </div>}
                 {columNumber === 5 && <div className={s.changedBlock}>{`${timeOn ? timeOn?.split(':')[0] + ' ' + 'ч' + ' ' + timeOn?.split(':')[1] + ' ' + 'мин' : '00:00'}`}</div>}
