@@ -49,7 +49,7 @@ export const Block: React.FC<BlockType> = ({title, columNumber, timeOn, P_Max_Fa
                 {columNumber === 13 && <div className={s.changedBlock}>{`${T_Fact_Returning === 'NaN:NaN' ? '00:00' : T_Fact_Returning}`}</div>}
                 {columNumber === 14 && <div className={s.phrases}>
                     <div className={s.subContainer}>
-                        <div>
+                        <div className={s.margin_top}>
                             <span className={s.changedBlock}>{`${timeOn ? timeOn : '00:00'}`}</span>
                             Пост - звену: проверка связи.
                         </div>

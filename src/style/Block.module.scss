@@ -36,6 +36,11 @@
   @include flex(column, flex-start, flex-start);
   gap: 20px;
   width: 80%;
+  padding-bottom: 20px;
+}
+
+.margin_top {
+  margin-top: 20px;
 }
 
 .changedBlock {
