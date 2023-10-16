@@ -29,7 +29,7 @@ function App() {
                 <Input dataCB={dataCB}/>
                 <section className={s.blocksContainer}>
                     <Block title={'Дата'} columNumber={1}/>
-                    <Block title={'Место'} columNumber={2}/>
+                    <Block title={'Адрес'} columNumber={2}/>
                     <Block title={'Подразделение, Постовой'} columNumber={3}/>
                     <Block title={'Состав звена'} columNumber={4}/>
                     <Block title={'T вкл.'} columNumber={5} timeOn={data.time}/>

@@ -19,8 +19,8 @@ export const Block: React.FC<BlockType> = ({title, columNumber, timeOn, P_Max_Fa
     console.log(timeOn?.split(':'))
     return (
         <div className={s.container}>
-            <div className={s.title}>{title}</div>
             <div className={s.columNumber}>{columNumber}</div>
+            <div className={s.title}>{title}</div>
             <div className={s.information}>
                 {columNumber === 1 && <div>01.04.1984</div>}
                 {columNumber === 2 && <div>ул. Кутузова, 4</div>}
