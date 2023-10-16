@@ -48,7 +48,7 @@ export const Input: React.FC<InputType> = ({dataCB}) => {
     return (
         <div className={s.inputContainer}>
             <h1>
-                <ReactTyped strings={["Введите исходные данные"]} typeSpeed={100} loopCount={1} />
+                <ReactTyped strings={["Введите исходные данные"]} typeSpeed={70} loopCount={1} />
             </h1>
             <div className={s.inputSection}>
                 <div className={s.inputBox}>
