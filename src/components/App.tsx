@@ -45,7 +45,7 @@ function App() {
                 </section>
             </main>
             <footer className={s.footer}>
-                <a href={'https://t.me/kravtsov_ilia'} className={s.getHireLink} target={'_blank'}>
+                <a href={'https://t.me/kravtsov_ilia'} className={s.getHireLink} target={'_blank'} rel="noreferrer" >
                     <div className={s.getHireContainer}>
                         <div className={s.getHireTitle}>
                             <span>Контакт для связи</span>
