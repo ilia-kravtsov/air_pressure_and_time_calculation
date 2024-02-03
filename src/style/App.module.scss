@@ -47,7 +47,6 @@
 }
 
 .blocksContainer {
-  margin-top: 10px;
   @include flex(column, flex-start, center);
   width: 100%;
   flex-wrap: wrap;
@@ -126,9 +125,6 @@
 }
 
 @media screen and (max-width: 700px) {
-  .header {
-    min-height: 8vh;
-  }
   .footer {
     height: 20vh;
   }
@@ -144,9 +140,6 @@
 }
 
 @media screen and (max-width: 400px) {
-  .header {
-    min-height: 7vh;
-  }
 }
 
 @media screen and (max-width: 330px) {
@@ -175,4 +168,23 @@
   .footer {
     display: none;
   }
+}
+
+/* Для WebKit-браузеров (например, Safari и Chrome) */
+::-webkit-scrollbar {
+  width: 10px; /* Ширина скролла */
+}
+
+::-webkit-scrollbar-track {
+  background-color: $bgcSecond; /* Цвет фона трека скролла */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $accentColor; /* Цвет ползунка скролла */
+}
+
+/* Для Firefox */
+* {
+  scrollbar-width: thin; /* Толщина скролла */
+  scrollbar-color: $accentColor $bgcSecond; /* Цвет ползунка и трека скролла */
 }

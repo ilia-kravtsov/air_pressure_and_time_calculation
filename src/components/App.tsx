@@ -4,6 +4,7 @@ import s from '../style/App.module.scss';
 import {Block} from "./Block";
 import {Input} from "./Input";
 import {timeCount} from "../utils/timeCount";
+import {Fade} from "react-awesome-reveal";
 
 function App() {
 
@@ -37,7 +38,9 @@ function App() {
                 <Logo className={s.app_logo}/>
             </header>
             <main className={s.body}>
-                <Input dataCB={dataCB}/>
+                <Fade direction={'down'}>
+                    <Input dataCB={dataCB}/>
+                </Fade>
                 <section className={s.blocksContainer}>
                     <Block title={'Дата'} columNumber={1}/>
                     <Block title={'Адрес'} columNumber={2}/>

@@ -1,6 +1,12 @@
 @import 'variables';
 @import 'mixin';
 
+.fadeForContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .container {
   @include flex(column, center, center);
   background-color: $bgcSecond;
@@ -9,6 +15,7 @@
   padding-top: 10px;
   padding-bottom: 10px;
   gap: 10px;
+  flex: 1;
 }
 
 .title {
@@ -50,18 +57,12 @@
 
 @media screen and (max-width: 2000px) {
   .container {
-    width: 80%;
+    width: 96vw;
   }
 }
 
 @media screen and (max-width: 1000px) {
   .container {
-    width: 90%;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .container {
-    width: 90%;
+    width: 96vw;
   }
 }

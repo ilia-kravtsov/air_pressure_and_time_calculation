@@ -1,15 +1,25 @@
 import React, {ChangeEvent, useState} from 'react';
 import s from '../style/Input.module.scss'
 import ReactTyped from "react-typed";
+import {Alert, Snackbar} from "@mui/material";
 
 type InputType = {
     dataCB: (startData: { time: string, pressure: string }) => void
 }
 
+type Validation = {
+    success: string
+    error: string
+}
+
 export const Input: React.FC<InputType> = ({dataCB}) => {
 
     let [startData, setStartData] = useState<{time: string, pressure: string}>({time: '', pressure: ''});
-    let [error, setError] = useState<string>('')
+
+    let [validation, setValidation] = useState<Validation>({
+        error: '',
+        success: '',
+    })
 
     const timeChanger = (e: ChangeEvent<HTMLInputElement>) => {
         setStartData({...startData, time: e.currentTarget.value});
@@ -17,9 +27,9 @@ export const Input: React.FC<InputType> = ({dataCB}) => {
     const pressureChanger = (e: ChangeEvent<HTMLInputElement>) => setStartData({...startData, pressure: e.currentTarget.value});
 
     const emptyError = (errorText: string) => {
-        setError(errorText)
+        setValidation({...validation, error: errorText})
         setTimeout(() => {
-            setError('')
+            setValidation({...validation, error: ''})
         }, 3000)
     }
 
@@ -31,12 +41,15 @@ export const Input: React.FC<InputType> = ({dataCB}) => {
         } else {
             const pattern = /^([01]\d|2[0-3]):[0-5]\d$/;
             if (pattern.test(startData.time)) {
-                if (+startData.pressure < 250 || +startData.pressure > 300) {
-                    emptyError('250 > P < 300')
+                if (+startData.pressure < 260 || +startData.pressure > 300) {
+                    emptyError('260 > P < 300')
                 } else {
                     dataCB(startData);
-                    setError('')
+                    setValidation({error: '', success: 'расчёт произведён'})
                     setStartData({time: '', pressure: ''})
+                    setTimeout(() => {
+                        setValidation({...validation, success: ''})
+                    }, 2500)
                 }
             } else {
                 emptyError('Не верно указан формат времени')
@@ -56,7 +69,7 @@ export const Input: React.FC<InputType> = ({dataCB}) => {
                            className={s.inputData}
                            type={'text'}
                            required/>
-                    <span>T вкл. в формате: 10:00</span>
+                    <span>T вкл. формат: 10:00</span>
                 </div>
                 <div className={s.inputBox}>
                     <input value={startData.pressure}
@@ -64,15 +77,24 @@ export const Input: React.FC<InputType> = ({dataCB}) => {
                            className={s.inputData}
                            type={'number'}
                            required/>
-                    <span>{'250 > P min < 300'}</span>
+                    <span>{'260 > P min < 300'}</span>
                 </div>
             </div>
             <button type={'submit'} className={s.countClick} onClick={onCountClick}>
                 <span>Расчёт</span>
                 <div className={s.liquid}></div>
             </button>
-            <div className={s.errorBlock}>
-                {error && <div className={s.error}>{error}</div>}
+            <div className={s.infoBlock}>
+                {<Snackbar open={!!validation.success} autoHideDuration={6000} onClose={() => setValidation({...validation, success: ''})} anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}>
+                    <Alert onClose={() => setValidation({...validation, success: ''})} severity="success">
+                        {validation.success}
+                    </Alert>
+                </Snackbar>}
+                {<Snackbar open={!!validation.error} autoHideDuration={6000} onClose={() => setValidation({...validation, error: ''})} anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}>
+                    <Alert onClose={() => setValidation({...validation, error: ''})} severity="error">
+                        {validation.error}
+                    </Alert>
+                </Snackbar>}
             </div>
         </div>
     );
