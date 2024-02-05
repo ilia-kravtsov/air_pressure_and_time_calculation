@@ -227,6 +227,9 @@
   .inputBox .inputData:focus ~ span {
     font-size: 14px;
   }
+  .inputBox span {
+    margin-top: 4px;
+  }
 }
 
 @media screen and (max-width: 400px) {
@@ -235,7 +238,7 @@
     width: 170px;
   }
   .inputBox span {
-    margin-top: 3px;
+    margin-top: 6px;
     font-size: 18px;
   }
 }
