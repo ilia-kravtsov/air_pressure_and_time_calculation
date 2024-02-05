@@ -1,0 +1,51 @@
+@import 'variables';
+@import 'mixin';
+
+.fadeForContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  @include flex(column, center, center);
+  background-color: $bgcSecond;
+  width: 120px;
+  padding: 15px;
+  margin-top: 20px;
+  gap: 10px;
+  border-radius: 5px;
+}
+
+.title {
+  width: 100%;
+  text-align: center;
+}
+
+.information {
+  width: 100%;
+  @include flex(row, center, center);
+}
+
+.time {
+  background-color: $accentColor;
+  padding: 7px;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 1400px) {
+  .fadeForContainer {
+    width: 20vw;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .fadeForContainer {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 270px) {
+  .container {
+    width: auto;
+  }
+}

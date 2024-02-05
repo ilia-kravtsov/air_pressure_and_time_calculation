@@ -13,7 +13,7 @@
 }
 
 .app_logo {
-  height: 10vmin;
+  height: 6vmin;
 }
 
 .app_logo * {
@@ -28,8 +28,8 @@
 
 .header {
   @include flex(row, center, center);
-  min-height: 12vh;
-  width: 50%;
+  min-height: 8vh;
+  width: 96%;
 }
 
 @keyframes app_logo_spin {
@@ -43,18 +43,19 @@
 
 .body {
   @include flex(column, space-evenly, center);
-  width: 100%;
+  width: 96%;
 }
 
 .blocksContainer {
-  @include flex(column, flex-start, center);
+  @include flex(row, space-evenly, flex-start);
   width: 100%;
   flex-wrap: wrap;
 }
 
 .footer {
   @include flex(row, center, center);
-  height: 16vh;
+  height: 12vh;
+  width: 96%;
 }
 
 .getHireLink {
@@ -111,9 +112,9 @@
   z-index: 1;
 }
 
-@media screen and (max-width: 900px) {
-  .header {
-    min-height: 10vh;
+@media screen and (max-width: 1200px) {
+  .app_logo {
+    height: 80px;
   }
 }
 
@@ -125,6 +126,9 @@
 }
 
 @media screen and (max-width: 700px) {
+  .app_logo {
+    height: 70px;
+  }
   .footer {
     height: 20vh;
   }
@@ -136,15 +140,6 @@
 @media screen and (max-width: 500px) {
   .app_logo {
     height: 60px;
-  }
-}
-
-@media screen and (max-width: 400px) {
-}
-
-@media screen and (max-width: 330px) {
-  .app_logo {
-    height: 50px;
   }
 }
 

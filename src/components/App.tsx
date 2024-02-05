@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import {ReactComponent as Logo} from '../logo.svg';
 import s from '../style/App.module.scss';
-import {Block} from "./Block";
+import {ResultBlock} from "./ResultBlock";
 import {Input} from "./Input";
 import {timeCount} from "../utils/timeCount";
 import {Fade} from "react-awesome-reveal";
+import {ReportsAndTime} from "./ReportsAndTime";
 
 function App() {
 
@@ -16,7 +17,7 @@ function App() {
         if (oldStartTime && oldStartPressure) {
             setData({time: oldStartTime, pressure: oldStartPressure})
         }
-    },[])
+    }, [])
 
     const dataCB = (startData: { time: string, pressure: string }) => {
         localStorage.setItem('startTime', startData.time)
@@ -42,24 +43,21 @@ function App() {
                     <Input dataCB={dataCB}/>
                 </Fade>
                 <section className={s.blocksContainer}>
-                    <Block title={'Дата'} columNumber={1}/>
-                    <Block title={'Адрес'} columNumber={2}/>
-                    <Block title={'Подразделение, Постовой'} columNumber={3}/>
-                    <Block title={'Состав звена'} columNumber={4}/>
-                    <Block title={'T вкл.'} columNumber={5} timeOn={data.time}/>
-                    <Block title={'P вкл.'} columNumber={6}/>
-                    <Block title={'P max.пад.'} columNumber={7} P_Max_Falling={P_Max_Falling}/>
-                    <Block title={'P к.вых.'} columNumber={8} P_Exit={P_Exit}/>
-                    <Block title={'ΔT'} columNumber={9} Delta_T={Delta_T}/>
-                    <Block title={'T вых.'} columNumber={10} T_Exit={T_Exit}/>
-                    <Block title={'T общ.'} columNumber={11} T_General={T_General}/>
-                    <Block title={'T возвр.'} columNumber={12} T_Returning={T_Returning}/>
-                    <Block title={'T ф.возвр.'} columNumber={13} T_Fact_Returning={T_Fact_Returning}/>
-                    <Block title={'Доклады и время'} columNumber={14} timeOn={data.time}/>
+                    <ResultBlock title={'T вкл.'} columNumber={1} timeOn={data.time}/>
+                    <ResultBlock title={'P max.пад.'} columNumber={2} P_Max_Falling={P_Max_Falling}/>
+                    <ResultBlock title={'P к.вых.'} columNumber={3} P_Exit={P_Exit}/>
+                    <ResultBlock title={'ΔT'} columNumber={4} Delta_T={Delta_T}/>
+                    <ResultBlock title={'T вых.'} columNumber={5} T_Exit={T_Exit}/>
+                    <ResultBlock title={'T общ.'} columNumber={6} T_General={T_General}/>
+                    <ResultBlock title={'T возвр.'} columNumber={7} T_Returning={T_Returning}/>
+                    <ResultBlock title={'T ф.возвр.'} columNumber={8} T_Fact_Returning={T_Fact_Returning}/>
                 </section>
+                <Fade direction={'left'}>
+                    <ReportsAndTime timeOn={data.time}/>
+                </Fade>
             </main>
             <footer className={s.footer}>
-                <a href={'https://t.me/kravtsov_ilia'} className={s.getHireLink} target={'_blank'} rel="noreferrer" >
+                <a href={'https://t.me/kravtsov_ilia'} className={s.getHireLink} target={'_blank'} rel="noreferrer">
                     <div className={s.getHireContainer}>
                         <div className={s.getHireTitle}>
                             <span>Контакт для связи</span>

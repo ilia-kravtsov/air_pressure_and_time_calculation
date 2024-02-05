@@ -6,7 +6,6 @@
   background-color: $bgcSecond;
   width: 96vw;
   gap: 20px;
-  min-height: 60vh;
 }
 
 .inputContainer h1 {
@@ -16,7 +15,7 @@
 }
 
 .inputSection {
-  @include flex(row, space-evenly, center);
+  @include flex(column, space-evenly, center);
   width: 100%;
   gap: 30px;
   transition-property: all;
@@ -26,7 +25,7 @@
 .inputBox {
   display: flex;
   position: relative;
-  width: 40%;
+  width: 50%;
 }
 
 .inputData {
@@ -137,13 +136,13 @@
 
 .liquid:before {
   border-radius: 45%;
-  background-color: rgba(40, 40, 40, .9);
+  background: $bgcSecond;
   animation: animate 5s linear infinite;
 }
 
 .liquid:after {
   border-radius: 40%;
-  background: rgba(35, 35, 35, 0.96);
+  background: rgba(28, 28, 28, 0.5);
   animation: animate 10s linear infinite;
 }
 
@@ -189,13 +188,13 @@
   }
 }
 
-@media screen and (max-width: 1200px) {
-  .inputSection {
-    @include flex(column, space-evenly, center);
-  }
+@media screen and (max-width: 2800px) {
   .inputBox {
     width: 70%;
   }
+}
+
+@media screen and (max-width: 1200px) {
   .inputContainer h1 {
     font-size: 28px;
   }
