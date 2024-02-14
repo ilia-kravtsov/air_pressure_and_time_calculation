@@ -1,6 +1,6 @@
 {
-  "name": "Расчёт",
-  "short_name": "Расчёт",
+  "name": "calculation",
+  "short_name": "calculation",
   "theme_color": "#3a5ace",
   "background_color": "#1c1c1c",
   "display": "standalone",
