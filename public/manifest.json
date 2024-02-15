@@ -8,7 +8,7 @@
   "start_url": "/",
   "icons": [
     {
-      "src": "maskable.png",
+      "src": "maskable_196.png",
       "sizes": "196x196",
       "type": "image/png",
       "purpose": "maskable"
@@ -33,5 +33,22 @@
       "sizes": "512x512",
       "type": "image/png"
     }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshot_640x320.png",
+      "sizes": "640x320",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "calculation"
+    },
+    {
+      "src": "screenshot_640x320.png",
+      "sizes": "640x320",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "calculation"
+    }
   ]
+
 }
